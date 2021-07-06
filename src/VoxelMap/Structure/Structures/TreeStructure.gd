@@ -15,7 +15,7 @@ var tree_log = {
 var tree_head = {
 	"height": 3,
 	"width": 3,
-	"top": 6,
+	"top": 5,
 }
 
 func _ready():
@@ -42,7 +42,7 @@ func do_head(pos):
 			for z in tree_head["width"]:
 				voxelmap.set_cell_item(
 					pos.x + x,
-					pos.y + y,
+					pos.y + y + tree_head["top"],
 					pos.z + z,
 					LEAF
 				)

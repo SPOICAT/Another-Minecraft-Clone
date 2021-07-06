@@ -22,8 +22,8 @@ player_path = NodePath("../Player")
 
 [node name="OScontrol" type="Node" parent="."]
 script = ExtResource( 3 )
-captured_mouse = false
 
 [node name="TreeStructure" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.84117, 3.67913, 3.1059 )
 script = ExtResource( 4 )
 voxelmap_path = NodePath("../VoxelMap")

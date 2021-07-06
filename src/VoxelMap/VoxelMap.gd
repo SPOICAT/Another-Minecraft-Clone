@@ -10,11 +10,17 @@ var noise = OpenSimplexNoise.new()
 var size : Vector3 = Vector3(64, 32, 64)
 
 
+# blocks
 enum {
 	GRASS,
 	STONE,
 	WOOD,
 	LEAF
+}
+
+# structures
+enum {
+	TREE
 }
 
 
@@ -41,9 +47,24 @@ func generate(xa, xb, ya, yb, za, zb):
 			for z in range(za, zb):
 				generate_cells(x, y, z)
 
+				generate_structures(Vector3(x, y, z))
+
 
 func generate_cells(x, y, z):
 	if y < noise.get_noise_2d(x, z) * 5 + 10:
 		set_cell_item(x, y, z, GRASS)
 	if y < noise.get_noise_2d(x, z) * 5:
 		set_cell_item(x, y, z, STONE)
+
+
+func generate_structures(pos : Vector3):
+	var n = randi() % 100
+	var strc = get_node("Structurer")
+	if n == TREE:
+		var new_tree = strc.tree.new()
+		new_tree.global_transform.origin = pos
+		add_child(new_tree)
+
+
+func _exit_tree():
+	print(get_node("Structurer").get_child_count())

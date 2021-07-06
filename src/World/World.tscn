@@ -39,3 +39,4 @@ __meta__ = {
 
 [node name="OScontrol" type="Node" parent="."]
 script = ExtResource( 3 )
+captured_mouse = false
