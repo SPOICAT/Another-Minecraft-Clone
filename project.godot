@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "OScontrol",
 "language": "GDScript",
 "path": "res://src/OScontrol.gd"
+}, {
+"base": "Spatial",
+"class": "Structure",
+"language": "GDScript",
+"path": "res://src/VoxelMap/Structure/Structure.gd"
+}, {
+"base": "Structure",
+"class": "TreeStructure",
+"language": "GDScript",
+"path": "res://src/VoxelMap/Structure/Structures/TreeStructure.gd"
 } ]
 _global_script_class_icons={
-"OScontrol": ""
+"OScontrol": "",
+"Structure": "",
+"TreeStructure": ""
 }
 
 [application]
@@ -138,6 +150,11 @@ remove_block={
 toggle_fullscreen={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777254,"unicode":0,"echo":false,"script":null)
+ ]
+}
+toggle_mouse_mode={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777253,"unicode":0,"echo":false,"script":null)
  ]
 }
 

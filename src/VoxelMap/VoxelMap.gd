@@ -12,7 +12,9 @@ var size : Vector3 = Vector3(64, 32, 64)
 
 enum {
 	GRASS,
-	STONE
+	STONE,
+	WOOD,
+	LEAF
 }
 
 
