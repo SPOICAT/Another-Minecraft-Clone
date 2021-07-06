@@ -24,3 +24,7 @@ shape = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, -1 )
 current = true
 far = 70.0
+
+[node name="BlockRay" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, 0, -6 )

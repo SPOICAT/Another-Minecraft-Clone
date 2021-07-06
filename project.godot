@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "OScontrol",
+"language": "GDScript",
+"path": "res://src/OScontrol.gd"
+} ]
+_global_script_class_icons={
+"OScontrol": ""
+}
+
 [application]
 
 config/name="Another Minecraft Clone"

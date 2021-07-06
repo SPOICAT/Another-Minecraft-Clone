@@ -11,6 +11,12 @@ var mouse_sensitivity : float = 0.25
 var velocity = Vector3.ZERO
 var jump = false
 
+onready var block_ray = get_node("BlockRay")
+var block_to_replace = null
+
+
+signal selected_block(position)
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -50,3 +56,8 @@ func _unhandled_input(event):
 		rot_delta *= mouse_sensitivity
 		rotation_degrees.y -= rot_delta.x
 		$Camera.rotation_degrees.x -= rot_delta.y
+		block_ray.rotation_degrees.x = $Camera.rotation_degrees.x
+
+	if event is InputEventMouseButton and event.is_pressed():
+		if block_ray.is_colliding():
+			emit_signal("selected_block", block_ray.get_collision_point())
