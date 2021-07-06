@@ -21,7 +21,7 @@ directional_shadow_depth_range = 1
 environment = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 100, 50 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 32, 8 )
 
 [node name="VoxelMap" parent="." instance=ExtResource( 1 )]
 data = {
@@ -30,9 +30,9 @@ data = {
 player_path = NodePath("../Player")
 
 [node name="Label" type="Label" parent="."]
-margin_right = 40.0
+margin_right = 261.0
 margin_bottom = 14.0
-text = "Text"
+text = "This is some text and not the version tag"
 __meta__ = {
 "_edit_use_anchors_": false
 }
