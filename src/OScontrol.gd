@@ -2,8 +2,6 @@ extends Node
 class_name OScontrol
 
 
-export var fullscreen : bool = false
-
-
-func _ready():
-	OS.window_fullscreen = fullscreen
+func _input(_event):
+	if Input.is_action_pressed("toggle_fullscreen"):
+		OS.window_fullscreen = !OS.window_fullscreen

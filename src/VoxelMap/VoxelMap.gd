@@ -11,7 +11,8 @@ var size : Vector3 = Vector3(64, 32, 64)
 
 
 enum {
-	GRASS
+	GRASS,
+	STONE
 }
 
 
@@ -21,19 +22,31 @@ func _physics_process(_delta):
 
 func _ready():
 	player.connect("selected_block", self, "edit_block")
+	randomize()
 	noise.seed = randi()
 	if generate_on_ready:
 		generate(size.x, size.y, size.z)
 	
 
-func edit_block(position):
+func edit_block(position, action):
 	var map_position = world_to_map(position)
-	set_cell_item(map_position.x, map_position.y, map_position.z, -1)
+	if action == player.ADD_BLOCK:
+		set_cell_item(map_position.x, map_position.y, map_position.z, GRASS)
+	elif action == player.REMOVE_BLOCK:
+		set_cell_item(map_position.x, map_position.y, map_position.z, -1)
 
 	
 func generate(a, b, c):
 	for x in a:
 		for y in b:
 			for z in c:
-				if y < noise.get_noise_2d(x, z) * 5+10:
-					set_cell_item(x, y, z, GRASS)
+				generate_cells(x, y, z)
+
+
+func generate_cells(x, y, z):
+
+	if y < noise.get_noise_2d(x, z) * 5 + 10:
+		set_cell_item(x, y, z, GRASS)
+
+	if y < noise.get_noise_2d(x, z) * 5:
+		set_cell_item(x, y, z, STONE)

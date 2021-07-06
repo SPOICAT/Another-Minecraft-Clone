@@ -1,10 +1,10 @@
 extends KinematicBody
 
-var gravity = Vector3.DOWN * 12  # strength of gravity
+var gravity = Vector3.DOWN * 10
 
-var speed = 50  # movement speed
+var speed = 25
 
-var jump_speed = 9  # jump strength
+var jump_speed = 9
 
 var mouse_sensitivity : float = 0.25
 
@@ -12,10 +12,13 @@ var velocity = Vector3.ZERO
 var jump = false
 
 onready var block_ray = get_node("BlockRay")
-var block_to_replace = null
 
 
-signal selected_block(position)
+signal selected_block(position, action)
+enum {
+	REMOVE_BLOCK,
+	ADD_BLOCK
+}
 
 
 func _ready():
@@ -58,6 +61,8 @@ func _unhandled_input(event):
 		$Camera.rotation_degrees.x -= rot_delta.y
 		block_ray.rotation_degrees.x = $Camera.rotation_degrees.x
 
-	if event is InputEventMouseButton and event.is_pressed():
-		if block_ray.is_colliding():
-			emit_signal("selected_block", block_ray.get_collision_point())
+	if block_ray.is_colliding():
+		if Input.is_action_pressed("add_block"):
+			emit_signal("selected_block", block_ray.get_collision_point(), ADD_BLOCK)
+		if Input.is_action_pressed("remove_block"):
+			emit_signal("selected_block", block_ray.get_collision_point(), REMOVE_BLOCK)
