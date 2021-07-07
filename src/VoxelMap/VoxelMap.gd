@@ -6,6 +6,8 @@ export var generate_on_ready : bool = true
 export var player_path : NodePath
 onready var player = get_node(player_path)
 
+onready var structure_container = get_child(0)
+
 var noise = OpenSimplexNoise.new()
 var size : Vector3 = Vector3(64, 32, 64)
 
@@ -41,7 +43,14 @@ func generate(xa, xb, ya, yb, za, zb):
 		for y in range(ya, yb):
 			for z in range(za, zb):
 				generate_cells(x, y, z)
+				
+				var ground = round(noise.get_noise_2d(x, z) * 5 + 10)
 
+				var n = randi() % 200
+				if y == ground and n == 0:
+					var tree = structure_container.structures['TreeStructure'].new()
+					tree.global_transform.origin = map_to_world(x, y, z)
+					structure_container.add_child(tree)
 
 
 func generate_cells(x, y, z):
