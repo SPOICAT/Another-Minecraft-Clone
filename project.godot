@@ -19,15 +19,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/VoxelMap/Structure/Structure.gd"
 }, {
-"base": "Structure",
-"class": "TreeStructure",
+"base": "Spatial",
+"class": "StructureContainer",
 "language": "GDScript",
-"path": "res://src/VoxelMap/Structure/Structures/TreeStructure.gd"
+"path": "res://src/VoxelMap/Structure/StructureContainer.gd"
 } ]
 _global_script_class_icons={
 "OScontrol": "",
 "Structure": "",
-"TreeStructure": ""
+"StructureContainer": ""
 }
 
 [application]

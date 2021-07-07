@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/VoxelMap/VoxelMap.gd" type="Script" id=1]
 [ext_resource path="res://src/VoxelMap/ml.tres" type="MeshLibrary" id=2]
-[ext_resource path="res://src/VoxelMap/Structure/Structure.gd" type="Script" id=3]
-[ext_resource path="res://src/VoxelMap/Structure/Structures/TreeStructure.gd" type="Script" id=4]
 
 [node name="VoxelMap" type="GridMap"]
 mesh_library = ExtResource( 2 )
@@ -14,8 +12,3 @@ script = ExtResource( 1 )
 __meta__ = {
 "_editor_clip_": 0
 }
-
-[node name="Structurer" type="Spatial" parent="."]
-script = ExtResource( 3 )
-is_container = true
-tree = ExtResource( 4 )
