@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "TreeStructure",
 "language": "GDScript",
 "path": "res://src/VoxelMap/Structure/Structures/TreeStructure.gd"
+}, {
+"base": "Structure",
+"class": "WaterStructure",
+"language": "GDScript",
+"path": "res://src/VoxelMap/Structure/Structures/WaterStructure.gd"
 } ]
 _global_script_class_icons={
 "OScontrol": "",
 "Structure": "",
 "StructureContainer": "",
-"TreeStructure": ""
+"TreeStructure": "",
+"WaterStructure": ""
 }
 
 [application]

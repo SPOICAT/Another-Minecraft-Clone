@@ -53,12 +53,17 @@ func _physics_process(delta):
 
 
 func _unhandled_input(event):
+
+	var min_camera_rot = -95
+	var max_camera_rot = 90
+
 	if event is InputEventMouseMotion:
 		var rot_delta = event.relative
 		rot_delta *= mouse_sensitivity
 		rotation_degrees.y -= rot_delta.x
 		$Camera.rotation_degrees.x -= rot_delta.y
 		block_ray.rotation_degrees.x = $Camera.rotation_degrees.x
+	$Camera.rotation_degrees.x = clamp($Camera.rotation_degrees.x, min_camera_rot, max_camera_rot)
 
 	if block_ray.is_colliding():
 		if Input.is_action_pressed("add_block"):

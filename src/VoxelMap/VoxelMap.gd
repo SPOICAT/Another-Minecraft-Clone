@@ -17,7 +17,8 @@ enum {
 	GRASS,
 	STONE,
 	WOOD,
-	LEAF
+	LEAF,
+	WATER
 }
 
 
@@ -42,20 +43,38 @@ func generate(xa, xb, ya, yb, za, zb):
 	for x in range (xa, xb):
 		for y in range(ya, yb):
 			for z in range(za, zb):
-				generate_cells(x, y, z)
-				
-				var ground = round(noise.get_noise_2d(x, z) * 5 + 10)
-
-				var n = randi() % 250
-				if y == ground and n == 0:
-					var tree = structure_container.structures['TreeStructure'].new()
-					tree.global_transform.origin = map_to_world(x, y, z)
-					structure_container.add_child(tree)
+				var ground = noise.get_noise_2d(x, z) * 5 + 10
+				generate_cells(x, y, z, ground)
+				generate_structures(x, y, z, ground)
 
 
-func generate_cells(x, y, z):
-	if y < noise.get_noise_2d(x, z) * 5 + 10:
+func generate_cells(x, y, z, ground):
+	if y < ground:
 		set_cell_item(x, y, z, GRASS)
+
 	if y < noise.get_noise_2d(x, z) * 5:
 		set_cell_item(x, y, z, STONE)
 
+
+
+func generate_structures(x, y, z, ground):
+
+	# all structures to generate snapped to ground
+	# should be inside this block of if statement
+	if y == round(ground):
+
+		# Tree
+		var tree_n = randi() % 250
+		if tree_n == 0:
+			create_structure(x, y, z, TreeStructure)
+
+		# water
+		var water_n = randi() % 225
+		if water_n == 0 and tree_n != 0:
+			create_structure(x, y, z, WaterStructure)
+
+
+func create_structure(x, y, z, class_):
+	var new_structure = class_.new()
+	new_structure.global_transform.origin = map_to_world(x, y, z)
+	structure_container.add_child(new_structure)
