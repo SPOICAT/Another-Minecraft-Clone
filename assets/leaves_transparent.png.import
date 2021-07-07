@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/leaf.png-51d7bb3638f990e4e43f165009e4c3dd.stex"
+path="res://.import/leaves_transparent.png-06284c080ba9e53baa8fbe253e81b2ab.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/leaf.png"
-dest_files=[ "res://.import/leaf.png-51d7bb3638f990e4e43f165009e4c3dd.stex" ]
+source_file="res://assets/leaves_transparent.png"
+dest_files=[ "res://.import/leaves_transparent.png-06284c080ba9e53baa8fbe253e81b2ab.stex" ]
 
 [params]
 

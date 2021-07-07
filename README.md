@@ -12,3 +12,7 @@ What's this repository? Nothing special - The name says it all. If you know Mine
 
 - Project NOT FINISHED
 - Performance is pretty slow (Or maybe it's just my potato PC...)
+
+## Credits
+
+- [Kenney's Voxel Pack](https://www.kenney.nl/assets/voxel-pack) is in use

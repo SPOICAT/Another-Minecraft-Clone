@@ -46,7 +46,7 @@ func generate(xa, xb, ya, yb, za, zb):
 				
 				var ground = round(noise.get_noise_2d(x, z) * 5 + 10)
 
-				var n = randi() % 200
+				var n = randi() % 250
 				if y == ground and n == 0:
 					var tree = structure_container.structures['TreeStructure'].new()
 					tree.global_transform.origin = map_to_world(x, y, z)
