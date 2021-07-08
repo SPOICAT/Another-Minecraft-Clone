@@ -26,5 +26,6 @@ current = true
 size = 100.0
 
 [node name="BlockRay" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0 )
 enabled = true
 cast_to = Vector3( 0, 0, -16 )

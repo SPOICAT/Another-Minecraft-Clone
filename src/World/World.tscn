@@ -8,7 +8,8 @@
 [node name="World" type="Spatial"]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.939693, -0.241845, 0.241845, 0, 0.707107, 0.707107, -0.34202, -0.664463, 0.664463, 0, 0, 0 )
+transform = Transform( 0.906308, -0.298836, 0.298836, 0, 0.707107, 0.707107, -0.422618, -0.640856, 0.640856, 0, 0, 0 )
+light_color = Color( 0.556863, 0.556863, 0.556863, 1 )
 light_bake_mode = 0
 directional_shadow_mode = 0
 directional_shadow_depth_range = 1

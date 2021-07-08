@@ -14,15 +14,11 @@ var jump = false
 onready var block_ray = get_node("BlockRay")
 
 
-signal selected_block(position, action)
+signal selected_block(action)
 enum {
 	REMOVE_BLOCK,
 	ADD_BLOCK
 }
-
-
-func _ready():
-	$Camera.current = true
 
 
 func get_input():
@@ -65,8 +61,7 @@ func _unhandled_input(event):
 		block_ray.rotation_degrees.x = $Camera.rotation_degrees.x
 	$Camera.rotation_degrees.x = clamp($Camera.rotation_degrees.x, min_camera_rot, max_camera_rot)
 
-	if block_ray.is_colliding():
-		if Input.is_action_pressed("add_block"):
-			emit_signal("selected_block", block_ray.get_collision_point(), ADD_BLOCK)
-		if Input.is_action_pressed("remove_block"):
-			emit_signal("selected_block", block_ray.get_collision_point(), REMOVE_BLOCK)
+	if Input.is_action_pressed("add_block"):
+		emit_signal("selected_block", ADD_BLOCK)
+	if Input.is_action_pressed("remove_block"):
+		emit_signal("selected_block", REMOVE_BLOCK)

@@ -33,8 +33,8 @@ func _ready():
 		generate(0, size.x, 0, size.y, 0, size.z)
 
 
-func edit_block(position, action):
-	var map_position = world_to_map(position)
+func edit_block(action):
+	var map_position = world_to_map(player.block_ray.get_collision_point())
 	if action == player.ADD_BLOCK:
 		set_cell_item(map_position.x, map_position.y, map_position.z, GRASS)
 	elif action == player.REMOVE_BLOCK:
@@ -50,13 +50,30 @@ func generate(xa, xb, ya, yb, za, zb):
 				generate_structures(x, y, z, ground)
 
 
+var stone_neighbors_count : int = 0
 func generate_cells(x, y, z, ground):
 	if y < ground:
 		set_cell_item(x, y, z, GRASS)
 
-	if y < noise.get_noise_2d(x, z) * 5:
-		set_cell_item(x, y, z, STONE)
-
+	# this does caves
+	if y < noise.get_noise_2d(x, z) * 8:
+		
+		for a in range (-1, 1):
+			for b in range (-1, 1):
+				for c in range (-1, 1):
+					var neighbor_cell = get_cell_item(x + a, y+  b, z + c)
+					var current_cell = get_cell_item(x, y, z)
+					
+					if current_cell == GRASS:
+						if stone_neighbors_count < 5:
+							set_cell_item(x, y, z, STONE)
+						else:
+							if y != 0:
+								set_cell_item(x, y, z, -1)
+					elif current_cell == STONE:
+						stone_neighbors_count += int(neighbor_cell == STONE)
+	else:
+		stone_neighbors_count = 0
 
 
 func generate_structures(x, y, z, ground):
