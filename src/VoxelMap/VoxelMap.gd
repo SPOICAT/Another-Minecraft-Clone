@@ -68,11 +68,6 @@ func generate_structures(x, y, z, ground):
 		if tree_n == 0:
 			create_structure(x, y, z, TreeStructure)
 
-		# water
-		var water_n = randi() % 225
-		if water_n == 0 and tree_n != 0:
-			create_structure(x, y, z, WaterStructure)
-
 
 func create_structure(x, y, z, class_):
 	var new_structure = class_.new()

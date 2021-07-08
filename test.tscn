@@ -29,5 +29,5 @@ script = ExtResource( 5 )
 voxelmap_path = NodePath("../VoxelMap")
 
 [node name="WaterStructure" type="Spatial" parent="StructureContainer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.21018, 3.23108, 1.2228 )
 script = ExtResource( 4 )

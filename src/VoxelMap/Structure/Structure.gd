@@ -9,7 +9,11 @@ onready var container = get_parent()
 onready var voxelmap = container.get_node(container.voxelmap_path)
 
 
+onready var pos = voxelmap.world_to_map(global_transform.origin)
+
+
 var used_blocks : Array = []
+
 
 
 # strc short for structure
@@ -58,3 +62,5 @@ func build(strc_):
 						)
 						
 					used_blocks.append(the_block)
+					
+
