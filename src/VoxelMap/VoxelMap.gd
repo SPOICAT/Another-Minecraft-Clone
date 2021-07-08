@@ -27,6 +27,8 @@ func _ready():
 
 	randomize()
 	noise.seed = randi()
+	noise.octaves = 1
+	noise.period = 16
 	if generate_on_ready:
 		generate(0, size.x, 0, size.y, 0, size.z)
 

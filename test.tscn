@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/VoxelMap/VoxelMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/OScontrol.gd" type="Script" id=3]
-[ext_resource path="res://src/VoxelMap/Structure/Structures/WaterStructure.gd" type="Script" id=4]
 [ext_resource path="res://src/VoxelMap/Structure/StructureContainer.gd" type="Script" id=5]
 
 [node name="test" type="Spatial"]
@@ -27,7 +26,3 @@ script = ExtResource( 3 )
 [node name="StructureContainer" type="Spatial" parent="."]
 script = ExtResource( 5 )
 voxelmap_path = NodePath("../VoxelMap")
-
-[node name="WaterStructure" type="Spatial" parent="StructureContainer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.21018, 3.23108, 1.2228 )
-script = ExtResource( 4 )
