@@ -8,31 +8,41 @@ class_name Structure
 onready var container = get_parent()
 onready var voxelmap = container.get_node(container.voxelmap_path)
 
-# dictionary for structure dicts that 
-# contains data for structure blocks
-static func strc():
-	return {
-		"height": 1,
-		"widthx": 1,
-		"widthz": 1,
-		"top": 0,
-		"left": 0,
-		"forward": 0,
-		"block": 0,
-	}
+
+# strc short for structure
+# contains blocks data to be built
+class strc:
+	var height = 1;
+	var widthx = 1;
+	var widthz = 1;
+	var top = 0;
+	var left = 0;
+	var forward = 0;
+	var block = null;
 
 
-# builds the dict
-func build(dict):
-	var pos = voxelmap.world_to_map(global_transform.origin)
-	
-	for x in dict["widthx"]:
-		for y in dict["height"]:
-			for z in dict["widthz"]:
+func set_strc_values(strc_, height, widthx, widthz, top, left, forward, block):
+	strc_.height = height
+	strc_.widthx = widthx
+	strc_.widthz = widthz
+	strc_.top = top
+	strc_.left = left
+	strc_.forward = forward
+	strc_.block = block
 
-				voxelmap.set_cell_item(
-					pos.x + x + dict["left"],
-					pos.y + y + dict["top"],
-					pos.z + z + dict["forward"],
-					dict["block"]
-					)
+
+# builds the strc
+func build(strc_):
+	if strc_.block != null:
+		var pos = voxelmap.world_to_map(global_transform.origin)
+		
+		for x in strc_.widthx:
+			for y in strc_.height:
+				for z in strc_.widthz:
+
+					voxelmap.set_cell_item(
+						pos.x + x + strc_.left,
+						pos.y + y + strc_.top,
+						pos.z + z + strc_.forward,
+						strc_.block
+						)
