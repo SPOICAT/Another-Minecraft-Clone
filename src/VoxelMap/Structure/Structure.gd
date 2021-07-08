@@ -9,6 +9,9 @@ onready var container = get_parent()
 onready var voxelmap = container.get_node(container.voxelmap_path)
 
 
+var used_blocks : Array = []
+
+
 # strc short for structure
 # contains blocks data to be built
 class strc:
@@ -40,9 +43,18 @@ func build(strc_):
 			for y in strc_.height:
 				for z in strc_.widthz:
 
-					voxelmap.set_cell_item(
+					var the_block = [
 						pos.x + x + strc_.left,
 						pos.y + y + strc_.top,
 						pos.z + z + strc_.forward,
 						strc_.block
+					]
+					
+					voxelmap.set_cell_item(
+						the_block[0],
+						the_block[1],
+						the_block[2],
+						the_block[3]
 						)
+						
+					used_blocks.append(the_block)
