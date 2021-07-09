@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/OScontrol.gd"
 }, {
+"base": "DirectionalLight",
+"class": "RotatingDirectionalLight",
+"language": "GDScript",
+"path": "res://src/Shaders_And_Stuff/RotatingDirectionalLight.gd"
+}, {
 "base": "Spatial",
 "class": "Structure",
 "language": "GDScript",
@@ -36,6 +41,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "OScontrol": "",
+"RotatingDirectionalLight": "",
 "Structure": "",
 "StructureContainer": "",
 "TreeStructure": "",
@@ -179,6 +185,9 @@ common/enable_pause_aware_picking=true
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+quality/shadows/filter_mode=0
+quality/reflections/texture_array_reflections=false
+quality/reflections/high_quality_ggx=false
 quality/filters/anisotropic_filter_level=1
 quality/depth/hdr=false
 environment/default_environment="res://default_env.tres"

@@ -4,14 +4,10 @@
 background_mode = 1
 background_color = Color( 0.0862745, 0.756863, 0.909804, 1 )
 background_energy = 0.0
-ambient_light_color = Color( 0.623529, 0.623529, 0.623529, 1 )
+ambient_light_color = Color( 0.223529, 0.223529, 0.223529, 1 )
 glow_levels/1 = true
 glow_levels/2 = true
 glow_levels/4 = true
 glow_levels/6 = true
 glow_levels/7 = true
-glow_intensity = 8.0
-glow_strength = 1.15
-glow_blend_mode = 1
-adjustment_contrast = 0.5
-adjustment_saturation = 2.0
+adjustment_brightness = 0.5
