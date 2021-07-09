@@ -11,8 +11,8 @@ var mouse_sensitivity : float = 0.25
 var velocity = Vector3.ZERO
 var jump = false
 
-onready var block_ray = get_node("BlockRay")
-
+onready var blocker = get_node("Camera/Blocker")
+var voxelmap = null
 
 signal selected_block(action)
 enum {
@@ -52,16 +52,17 @@ func _unhandled_input(event):
 
 	var min_camera_rot = -95
 	var max_camera_rot = 90
+	
+	var camera = get_node("Camera")
 
 	if event is InputEventMouseMotion:
 		var rot_delta = event.relative
 		rot_delta *= mouse_sensitivity
 		rotation_degrees.y -= rot_delta.x
-		$Camera.rotation_degrees.x -= rot_delta.y
-		block_ray.rotation_degrees.x = $Camera.rotation_degrees.x
-	$Camera.rotation_degrees.x = clamp($Camera.rotation_degrees.x, min_camera_rot, max_camera_rot)
+		camera.rotation_degrees.x -= rot_delta.y
+	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, min_camera_rot, max_camera_rot)
 
+	if Input.is_action_just_pressed("remove_block"):
+		emit_signal("selected_block", REMOVE_BLOCK)
 	if Input.is_action_pressed("add_block"):
 		emit_signal("selected_block", ADD_BLOCK)
-	if Input.is_action_pressed("remove_block"):
-		emit_signal("selected_block", REMOVE_BLOCK)

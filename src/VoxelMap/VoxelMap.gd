@@ -23,6 +23,7 @@ enum {
 
 
 func _ready():
+	player.voxelmap = self
 	player.connect("selected_block", self, "edit_block")
 
 	randomize()
@@ -34,10 +35,11 @@ func _ready():
 
 
 func edit_block(action):
-	var map_position = world_to_map(player.block_ray.get_collision_point())
+	var map_position = world_to_map(player.blocker.mesh.global_transform.origin)
 	if action == player.ADD_BLOCK:
 		set_cell_item(map_position.x, map_position.y, map_position.z, GRASS)
 	elif action == player.REMOVE_BLOCK:
+		printt(map_position)
 		set_cell_item(map_position.x, map_position.y, map_position.z, -1)
 
 	
