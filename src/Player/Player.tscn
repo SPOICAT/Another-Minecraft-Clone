@@ -27,5 +27,4 @@ current = true
 size = 100.0
 
 [node name="Blocker" parent="Camera" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25, 0 )
 player_path = NodePath("../..")

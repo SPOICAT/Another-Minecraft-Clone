@@ -39,7 +39,6 @@ func edit_block(action):
 	if action == player.ADD_BLOCK:
 		set_cell_item(map_position.x, map_position.y, map_position.z, GRASS)
 	elif action == player.REMOVE_BLOCK:
-		printt(map_position)
 		set_cell_item(map_position.x, map_position.y, map_position.z, -1)
 
 	

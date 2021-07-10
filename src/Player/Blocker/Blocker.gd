@@ -6,6 +6,7 @@ onready var raycast = get_node("RayCast")
 export var player_path : NodePath
 onready var player = get_node(player_path)
 
+var point = null
 
 func _ready():
 	raycast.add_exception(player)
@@ -14,7 +15,10 @@ func _ready():
 
 func _physics_process(_delta):
 	
+	var voxelmap = player.voxelmap
+	
 	if raycast.is_colliding():
-		var voxelmap = player.voxelmap
-		var point = voxelmap.world_to_map(raycast.get_collision_point())
+		point = voxelmap.world_to_map(raycast.get_collision_point())
+	
+	if point:
 		mesh.global_transform.origin = voxelmap.map_to_world(point.x, point.y, point.z)

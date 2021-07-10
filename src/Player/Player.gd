@@ -48,7 +48,7 @@ func _physics_process(delta):
 		velocity.y = jump_speed
 
 
-func _unhandled_input(event):
+func _input(event):
 
 	var min_camera_rot = -95
 	var max_camera_rot = 90
