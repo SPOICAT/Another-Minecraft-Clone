@@ -54,6 +54,10 @@ config/name="Another Minecraft Clone"
 run/main_scene="res://src/World/World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameLoader="*res://src/Autoloads/GameLoader.gd"
+
 [importer_defaults]
 
 texture={
@@ -191,4 +195,3 @@ quality/reflections/texture_array_reflections=false
 quality/reflections/high_quality_ggx=false
 quality/filters/anisotropic_filter_level=1
 quality/depth/hdr=false
-environment/default_environment="res://default_env.tres"

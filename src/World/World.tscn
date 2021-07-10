@@ -32,7 +32,7 @@ __meta__ = {
 script = ExtResource( 3 )
 
 [node name="RotatingDirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( -0.686272, -0.720076, -0.102573, -2.1294e-08, -0.141024, 0.990006, -0.727344, 0.679414, 0.0967807, 0, 0, 0 )
+transform = Transform( 0.175509, 0.798247, 0.576193, -8.83744e-08, -0.585278, 0.810832, 0.984477, -0.142309, -0.102721, 0, 0, 0 )
 script = ExtResource( 5 )
 rotate_in_editor = true
 rotation_ = Vector3( 1, 0.1, 0 )

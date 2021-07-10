@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/water.png-60eb5d11192d61f791951f83acef7554.stex"
+path="res://.import/leaves_transparent.png-f15be0afadcc164c4bfd5660674deedb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/water.png"
-dest_files=[ "res://.import/water.png-60eb5d11192d61f791951f83acef7554.stex" ]
+source_file="res://assets/textures/leaves_transparent.png"
+dest_files=[ "res://.import/leaves_transparent.png-f15be0afadcc164c4bfd5660674deedb.stex" ]
 
 [params]
 

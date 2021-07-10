@@ -26,8 +26,8 @@ func _ready():
 	player.voxelmap = self
 	player.connect("selected_block", self, "edit_block")
 
-	randomize()
-	noise.seed = randi()
+	noise.seed = GameLoader.entered_seed
+	print(noise.seed)
 	noise.octaves = 1
 	noise.period = 16
 	if generate_on_ready:

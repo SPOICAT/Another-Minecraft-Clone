@@ -1,23 +1,26 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Player/Blocker/Blocker.gd" type="Script" id=1]
-[ext_resource path="res://assets/pointer.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/pointer.png" type="Texture" id=2]
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
 flags_unshaded = true
-distance_fade_mode = 1
-distance_fade_min_distance = 0.0
-distance_fade_max_distance = 10.0
+flags_disable_ambient_light = true
+params_grow = true
+params_grow_amount = 0.1
+albedo_color = Color( 1, 1, 1, 0.356863 )
+uv1_scale = Vector3( 3, 2, 1 )
 
 [sub_resource type="CubeMesh" id=2]
-material = SubResource( 3 )
+material = SubResource( 1 )
 
 [node name="Blocker" type="Spatial"]
 script = ExtResource( 1 )
 
 [node name="RayCast" type="RayCast" parent="."]
 enabled = true
-cast_to = Vector3( 0, -3, -16 )
+cast_to = Vector3( 0, 0, -16 )
 
 [node name="Mesh" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
