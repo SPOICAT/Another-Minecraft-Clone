@@ -19,6 +19,8 @@ func _physics_process(_delta):
 	
 	if raycast.is_colliding():
 		point = voxelmap.world_to_map(raycast.get_collision_point())
+		if voxelmap.get_cell_item(point.x, point.y, point.z) == -1:
+			point = null
 	
-	if point:
+	if point != null:
 		mesh.global_transform.origin = voxelmap.map_to_world(point.x, point.y, point.z)

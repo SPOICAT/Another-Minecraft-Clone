@@ -37,7 +37,8 @@ func _ready():
 func edit_block(action):
 	var map_position = world_to_map(player.blocker.mesh.global_transform.origin)
 	if action == player.ADD_BLOCK:
-		set_cell_item(map_position.x, map_position.y, map_position.z, GRASS)
+		if get_cell_item(map_position.x, map_position.y, map_position.z) == -1:
+			set_cell_item(map_position.x, map_position.y, map_position.z, GRASS)
 	elif action == player.REMOVE_BLOCK:
 		set_cell_item(map_position.x, map_position.y, map_position.z, -1)
 

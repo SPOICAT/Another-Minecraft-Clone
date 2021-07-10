@@ -8,6 +8,7 @@ var jump_speed = 9
 
 var mouse_sensitivity : float = 0.25
 
+var facing : Vector3
 var velocity = Vector3.ZERO
 var jump = false
 
@@ -61,6 +62,12 @@ func _input(event):
 		rotation_degrees.y -= rot_delta.x
 		camera.rotation_degrees.x -= rot_delta.y
 	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, min_camera_rot, max_camera_rot)
+
+	facing = Vector3(
+		camera.rotation.x,
+		rotation.y,
+		rotation.z
+	)
 
 	if Input.is_action_just_pressed("remove_block"):
 		emit_signal("selected_block", REMOVE_BLOCK)
