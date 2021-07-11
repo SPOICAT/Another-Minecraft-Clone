@@ -12,3 +12,14 @@ func _on_Play_button_down():
 		entered_seed = randi()
 	GameLoader.entered_seed = int(entered_seed)
 	GameLoader.enter_game()
+
+
+func _on_SubmenuToggle_toggled(button_pressed):
+	for e in get_tree().get_nodes_in_group("Main"):
+		e.visible = !button_pressed
+	for f in get_tree().get_nodes_in_group("Settings"):
+		f.visible = button_pressed
+
+
+func _on_GfxCheckbox_toggled(button_pressed):
+	GameLoader.gamedata["gfx_mode"] = int(button_pressed)

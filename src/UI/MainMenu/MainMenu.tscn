@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/UI/MainMenu/uifonta.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/UI/MainMenu/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://src/UI/MainMenu/uifonta_small.tres" type="DynamicFont" id=3]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -19,7 +20,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." groups=[
+"Main",
+]]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -34,7 +37,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Play" type="Button" parent="."]
+[node name="Play" type="Button" parent="." groups=[
+"Main",
+]]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -49,17 +54,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SeedEnter" type="LineEdit" parent="."]
-margin_left = 280.0
-margin_top = 214.0
-margin_right = 393.0
-margin_bottom = 243.0
+[node name="SeedEnter" type="LineEdit" parent="." groups=[
+"Main",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -62.0
+margin_top = -164.5
+margin_right = 62.0
+margin_bottom = -135.5
 placeholder_text = "Seed? (Optional)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit" type="Button" parent="."]
+[node name="Quit" type="Button" parent="." groups=[
+"Main",
+]]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -74,5 +87,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SubmenuToggle" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -267.0
+margin_top = -57.0
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Control" parent="." groups=[
+"Settings",
+]]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -71.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GfxCheckbox" type="CheckBox" parent="Settings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -91.0
+margin_top = -13.0
+margin_right = 91.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 3 )
+text = "Fancy Graphics"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="button_down" from="Play" to="." method="_on_Play_button_down"]
 [connection signal="button_down" from="Quit" to="." method="_on_Quit_button_down"]
+[connection signal="toggled" from="SubmenuToggle" to="." method="_on_SubmenuToggle_toggled"]
+[connection signal="toggled" from="Settings/GfxCheckbox" to="." method="_on_GfxCheckbox_toggled"]
